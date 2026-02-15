@@ -19,9 +19,10 @@ app.get('/', (req, res) => {
   res.send('API funcionando correctamente 🚀');
 });
 // recien agregada
-app.listen(process.env.PORT, () => {
-  console.log(`Servidor corriendo en puerto ${process.env.PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Servidor corriendo`);
 });
+
 app.use('/api/auth', authRoutes);
 // recien agregada
 app.get('/api/protected', verifyToken, (req, res) => {
